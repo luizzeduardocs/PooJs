@@ -1,26 +1,65 @@
-# Essência do Poti
+Essência do Poti
 
-Projeto desenvolvido para a disciplina de Programação Orientada a Objetos, do curso de Engenharia de Software da UNIFSA.
+Projeto desenvolvido para a disciplina de Programação Orientada a Objetos (POO), do curso de Engenharia de Software da UNIFSA.
 
-## Integrantes
+Sobre o projeto
 
-- Luiz Eduardo — Produtos
-- Davi Reis — Produção
+O Essência do Poti é um sistema em Java que simula algumas das atividades de uma perfumaria. Nele, trabalhamos com perfumes, fórmulas, frascos, lotes, matérias-primas, funcionários, vendas e encomendas personalizadas.
 
-## Sobre o projeto
+Durante o desenvolvimento, colocamos em prática os conceitos de POO vistos na disciplina e criamos testes para verificar as regras de funcionamento do sistema.
 
-O Essência do Poti é um sistema desenvolvido em Java para uma perfumaria. A ideia é organizar os produtos e acompanhar o processo de produção, aplicando os conceitos estudados na disciplina de POO.
+Integrantes
 
-O sistema conta com classes para representar os produtos, os frascos, os lotes e as matérias-primas, além de outras partes necessárias para o funcionamento da perfumaria.
+Luiz Eduardo — Produtos
 
-# Tecnologias utilizadas
+Davi Reis — Produção
 
-Java, NetBeans e GitHub.
+Tecnologias utilizadas
 
-## Como executar
+Java
 
-Abra o projeto no NetBeans e execute a classe `Simulacao.java` após a integração das classes.
+Git e GitHub Netbeans
 
-O projeto está sendo desenvolvido em conjunto e será testado conforme as funcionalidades forem implementadas      
+Estrutura do projeto
+
+pessoas: classes relacionadas a clientes e funcionários.
+
+producao: classes de frascos, lotes e matérias-primas.
+
+produtos: classes de perfumes, fórmulas e outros produtos.
+
+Simulacao.java: classe principal utilizada para executar os testes do sistema.
+
+O que foi desenvolvido
+
+Criação de fórmulas e perfumes.
+
+Verificação da concentração de cada categoria de perfume.
+
+Validação das notas e dos percentuais das fórmulas.
+
+Controle de frascos, lotes e estoque.
+
+Verificação do tempo de maceração.
+
+Regras de preço e utilização de matérias-primas.
+
+Validações para velas aromáticas, difusores e encomendas personalizadas.
+
+Simulação de vendas e testes das regras de negócio.
+
+Como executar
+
+É necessário ter o JDK instalado.
+
+Na pasta src, execute os comandos abaixo para compilar e rodar a simulação.
+
+Compilar:
+
+javac -encoding UTF-8 -d out br/edu/unifsa/perfumaria/Simulacao.java br/edu/unifsa/perfumaria/pessoas/*.java br/edu/unifsa/perfumaria/producao/*.java br/edu/unifsa/perfumaria/produtos/*.java
+
+Executar:
+
+java -cp out br.edu.unifsa.perfumaria.Simulacao
 
 OBS MEU NETBEANS NAO RODOU  COMO ESPERADO POIS ESTOU SEM MEU NOTEBOOK, ESTOU UTILIZANDO UM MAIS FRACO DE EMERGENCIA, POREM TODAS AS COMPETENCIAS FORAM ATENDIDAS, E FEITAS COM AJUDA DE PAINEL CMD EM ALGUNS DOS CASOS, QUANDO FOI NECESSARIO.
