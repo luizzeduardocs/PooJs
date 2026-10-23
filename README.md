@@ -4,51 +4,59 @@ Projeto acadêmico desenvolvido para a disciplina de Programação Orientada a O
 
 ## Sobre o projeto
 
-O Essência do Poti é um sistema em Java que simula atividades de uma perfumaria, incluindo perfumes, fórmulas, frascos, lotes, matérias-primas, funcionários, vendas e encomendas personalizadas. A classe `Simulacao` executa exemplos e validações das regras de negócio.
+O Essência do Poti é um sistema desenvolvido em Java que simula atividades de uma perfumaria, incluindo perfumes, fórmulas, frascos, lotes, matérias-primas, funcionários, vendas e encomendas personalizadas. A classe `Simulacao` executa exemplos e validações das regras de negócio implementadas no sistema.
 
 ## Integrantes
 
 | Integrante | GitHub | Módulo |
 |---|---|---|
 | Luiz Eduardo | @luizzeduardocs | Produtos |
-| Davi Reis | DaviReis500 | Produção |
-
+| Davi Reis | @DaviReis500 | Produção |
 
 ## Organização do projeto
 
 - `src/br/edu/unifsa/perfumaria/produtos`: perfumes, fórmulas, velas aromáticas, difusores e interfaces.
 - `src/br/edu/unifsa/perfumaria/producao`: matérias-primas, lotes e frascos.
 - `src/br/edu/unifsa/perfumaria/pessoas`: clientes, funcionários e encomendas personalizadas.
-- `src/br/edu/unifsa/perfumaria/Simulacao.java`: ponto de entrada para executar a simulação.
-- `docs/diagrama-de-classes.png`: diagrama de classes.
-- `docs/diagrama.dot`: fonte Graphviz do diagrama existente.
+- `src/br/edu/unifsa/perfumaria/Simulacao.java`: classe principal utilizada para executar a simulação.
+- `docs/diagrama-de-classes.png`: imagem do diagrama de classes.
+- `docs/diagrama.dot`: arquivo-fonte Graphviz do diagrama, caso esteja presente no repositório.
 
 ## Decisões de modelagem
 
-- `Perfume` é abstrata porque reúne características e comportamentos comuns às categorias Parfum, Eau de Parfum, Eau de Toilette e Colônia.
-- `Funcionario` é abstrata porque reúne dados e comportamentos comuns aos funcionários, especializados em perfumista júnior e sênior.
-- `Precificavel` define comportamentos relacionados ao cálculo de custo e preço mínimo.
-- `Vendavel` representa os produtos que podem ser comercializados.
-- Os atributos são privados para proteger o estado dos objetos e permitir validações nos métodos. O atributo `concentracao` de `Perfume` é `protected` para permitir acesso pelas subclasses, evitando duplicação.
-- O código do lote e o volume do frasco são definidos na criação dos objetos e não possuem setters, para preservar esses valores.
+- `Perfume` é uma classe abstrata porque reúne características e comportamentos comuns às categorias Parfum, Eau de Parfum, Eau de Toilette e Colônia.
+- `Funcionario` é uma classe abstrata porque reúne dados e comportamentos compartilhados pelos funcionários, especializados em perfumista júnior e sênior.
+- A interface `Precificavel` define comportamentos relacionados ao cálculo de custos e preços mínimos.
+- A interface `Vendavel` representa os produtos que podem ser comercializados.
+- Os atributos são privados para proteger o estado dos objetos e permitir que as validações sejam realizadas pelos métodos. O atributo `concentracao` de `Perfume` é protegido (`protected`) para permitir o acesso pelas subclasses.
+- O código do lote e o volume do frasco são definidos na criação dos objetos e não possuem métodos setters, preservando esses valores após a definição.
 
 ## Regras de negócio
 
-A simulação contempla validações relacionadas à concentração dos perfumes, composição das fórmulas, volume dos frascos, tempo de maceração, código do lote, preço mínimo, estoque, validade das matérias-primas, autorização para assinar fórmulas, composição de velas, quantidade de varetas dos difusores e gravação/devolução de encomendas personalizadas. Consulte o código e a saída da simulação para verificar o comportamento de cada regra.
+A simulação contempla validações relacionadas à concentração dos perfumes, à composição das fórmulas, ao volume dos frascos, ao tempo de maceração, ao código dos lotes, ao preço mínimo, ao controle de estoque, à validade das matérias-primas, à autorização para assinar fórmulas, à composição de velas aromáticas, à quantidade de varetas dos difusores e às regras de gravação e devolução de encomendas personalizadas.
 
+O comportamento dessas regras pode ser conferido no código-fonte e na saída da simulação.
 
+## Observação sobre o desenvolvimento
 
-**OBS MEU NETBEANS NAO RODOU  COMO ESPERADO POIS ESTOU SEM MEU NOTEBOOK, ESTOU UTILIZANDO UM MAIS FRACO DE EMERGENCIA, POREM TODAS AS COMPETENCIAS FORAM ATENDIDAS, E FEITAS COM AJUDA DE PAINEL CMD EM ALGUNS DOS CASOS, QUANDO FOI NECESSARIO.**
-
+**OBS: MEU NETBEANS NÃO RODOU COMO ESPERADO, POIS ESTOU SEM MEU NOTEBOOK HABITUAL E ESTOU UTILIZANDO UM MAIS FRACO DE EMERGÊNCIA. PORÉM, TODAS AS COMPETÊNCIAS FORAM ATENDIDAS, E ALGUMAS ETAPAS FORAM REALIZADAS COM O AUXÍLIO DO CMD QUANDO NECESSÁRIO.**
 
 ## Como compilar e executar
 
-É necessário ter um JDK instalado. Abra o terminal na pasta `src` do projeto.
+É necessário ter o JDK instalado. Abra o CMD na pasta `src` do projeto.
 
-**Windows (CMD):**
+**1. Compilar o projeto:**
 
 ```bat
-javac -encoding UTF-8 -d out -sourcepath . br\edu\unifsa\perfumaria\Simulacao.java
+javac -encoding UTF-8 -d out -sourcepath . br\edu\unifsa\perfumaria\Simulacao.java br\edu\unifsa\perfumaria\pessoas\*.java br\edu\unifsa\perfumaria\producao\*.java br\edu\unifsa\perfumaria\produtos\*.java
+```
+
+**2. Executar a simulação:**
+
+```bat
 java -cp out br.edu.unifsa.perfumaria.Simulacao
+```
 
+## Finalidade acadêmica
 
+Projeto desenvolvido para fins acadêmicos, com o objetivo de aplicar os conceitos de Programação Orientada a Objetos utilizando Java.
