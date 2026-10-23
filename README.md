@@ -1,65 +1,55 @@
-Essência do Poti
+# Essência do Poti
 
-Projeto desenvolvido para a disciplina de Programação Orientada a Objetos (POO), do curso de Engenharia de Software da UNIFSA.
+Projeto acadêmico desenvolvido para a disciplina de Programação Orientada a Objetos (POO), do curso de Engenharia de Software da UNIFSA.
 
-Sobre o projeto
+## Sobre o projeto
 
-O Essência do Poti é um sistema em Java que simula algumas das atividades de uma perfumaria. Nele, trabalhamos com perfumes, fórmulas, frascos, lotes, matérias-primas, funcionários, vendas e encomendas personalizadas.
+O Essência do Poti é um sistema em Java que simula atividades de uma perfumaria, incluindo perfumes, fórmulas, frascos, lotes, matérias-primas, funcionários, vendas e encomendas personalizadas. A classe `Simulacao` executa exemplos e validações das regras de negócio.
 
-Durante o desenvolvimento, colocamos em prática os conceitos de POO vistos na disciplina e criamos testes para verificar as regras de funcionamento do sistema.
+## Integrantes
 
-Integrantes
+| Integrante | GitHub | Módulo |
+|---|---|---|
+| Luiz Eduardo | @luizzeduardocs | Produtos |
+| Davi Reis | DaviReis500 | Produção |
 
-Luiz Eduardo — Produtos
+> Antes da entrega, confirmem os nomes completos e os usuários do GitHub de todos os integrantes.
 
-Davi Reis — Produção
+## Organização do projeto
 
-Tecnologias utilizadas
+- `src/br/edu/unifsa/perfumaria/produtos`: perfumes, fórmulas, velas aromáticas, difusores e interfaces.
+- `src/br/edu/unifsa/perfumaria/producao`: matérias-primas, lotes e frascos.
+- `src/br/edu/unifsa/perfumaria/pessoas`: clientes, funcionários e encomendas personalizadas.
+- `src/br/edu/unifsa/perfumaria/Simulacao.java`: ponto de entrada para executar a simulação.
+- `docs/diagrama-de-classes.png`: diagrama de classes.
+- `docs/diagrama.dot`: fonte Graphviz do diagrama existente.
 
-Java
+## Decisões de modelagem
 
-Git e GitHub Netbeans
+- `Perfume` é abstrata porque reúne características e comportamentos comuns às categorias Parfum, Eau de Parfum, Eau de Toilette e Colônia.
+- `Funcionario` é abstrata porque reúne dados e comportamentos comuns aos funcionários, especializados em perfumista júnior e sênior.
+- `Precificavel` define comportamentos relacionados ao cálculo de custo e preço mínimo.
+- `Vendavel` representa os produtos que podem ser comercializados.
+- Os atributos são privados para proteger o estado dos objetos e permitir validações nos métodos. O atributo `concentracao` de `Perfume` é `protected` para permitir acesso pelas subclasses, evitando duplicação.
+- O código do lote e o volume do frasco são definidos na criação dos objetos e não possuem setters, para preservar esses valores.
 
-Estrutura do projeto
+## Regras de negócio
 
-pessoas: classes relacionadas a clientes e funcionários.
+A simulação contempla validações relacionadas à concentração dos perfumes, composição das fórmulas, volume dos frascos, tempo de maceração, código do lote, preço mínimo, estoque, validade das matérias-primas, autorização para assinar fórmulas, composição de velas, quantidade de varetas dos difusores e gravação/devolução de encomendas personalizadas. Consulte o código e a saída da simulação para verificar o comportamento de cada regra.
 
-producao: classes de frascos, lotes e matérias-primas.
 
-produtos: classes de perfumes, fórmulas e outros produtos.
 
-Simulacao.java: classe principal utilizada para executar os testes do sistema.
+**OBS MEU NETBEANS NAO RODOU  COMO ESPERADO POIS ESTOU SEM MEU NOTEBOOK, ESTOU UTILIZANDO UM MAIS FRACO DE EMERGENCIA, POREM TODAS AS COMPETENCIAS FORAM ATENDIDAS, E FEITAS COM AJUDA DE PAINEL CMD EM ALGUNS DOS CASOS, QUANDO FOI NECESSARIO.**
 
-O que foi desenvolvido
 
-Criação de fórmulas e perfumes.
+## Como compilar e executar
 
-Verificação da concentração de cada categoria de perfume.
+É necessário ter um JDK instalado. Abra o terminal na pasta `src` do projeto.
 
-Validação das notas e dos percentuais das fórmulas.
+**Windows (CMD):**
 
-Controle de frascos, lotes e estoque.
-
-Verificação do tempo de maceração.
-
-Regras de preço e utilização de matérias-primas.
-
-Validações para velas aromáticas, difusores e encomendas personalizadas.
-
-Simulação de vendas e testes das regras de negócio.
-
-Como executar
-
-É necessário ter o JDK instalado.
-
-Na pasta src, execute os comandos abaixo para compilar e rodar a simulação.
-
-Compilar:
-
-javac -encoding UTF-8 -d out br/edu/unifsa/perfumaria/Simulacao.java br/edu/unifsa/perfumaria/pessoas/*.java br/edu/unifsa/perfumaria/producao/*.java br/edu/unifsa/perfumaria/produtos/*.java
-
-Executar:
-
+```bat
+javac -encoding UTF-8 -d out -sourcepath . br\edu\unifsa\perfumaria\Simulacao.java
 java -cp out br.edu.unifsa.perfumaria.Simulacao
 
-OBS MEU NETBEANS NAO RODOU  COMO ESPERADO POIS ESTOU SEM MEU NOTEBOOK, ESTOU UTILIZANDO UM MAIS FRACO DE EMERGENCIA, POREM TODAS AS COMPETENCIAS FORAM ATENDIDAS, E FEITAS COM AJUDA DE PAINEL CMD EM ALGUNS DOS CASOS, QUANDO FOI NECESSARIO.
+
