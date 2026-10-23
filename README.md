@@ -13,7 +13,6 @@ O Essência do Poti é um sistema em Java que simula atividades de uma perfumari
 | Luiz Eduardo | @luizzeduardocs | Produtos |
 | Davi Reis | DaviReis500 | Produção |
 
-> Antes da entrega, confirmem os nomes completos e os usuários do GitHub de todos os integrantes.
 
 ## Organização do projeto
 
