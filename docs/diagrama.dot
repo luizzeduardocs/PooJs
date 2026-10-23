@@ -1,0 +1,34 @@
+
+digraph Essencia {
+  graph [rankdir=TB, bgcolor="white", pad="0.25", nodesep="0.35", ranksep="0.55", fontname="Arial", label="Essência do Poti — Diagrama de classes (visão resumida)", labelloc=t, fontsize=18];
+  node [shape=record, style="rounded,filled", fillcolor="#F7F9FC", color="#475569", fontname="Arial", fontsize=9, margin="0.10,0.07"];
+  edge [color="#64748B", fontname="Arial", fontsize=8, arrowsize=0.8];
+  Perfume [label="{«abstract» Perfume| - nome : String\\l - formula : Formula\\l # concentracao : double\\l - custoBase : double\\l - precoVenda : double\\l| + calcularCustoProducao() : double\\l + calcularPrecoMinimo() : double\\l}"];
+  Parfum [label="{Parfum| | + minimoConcentracao()\\l + toString()\\l}"];
+  EDP [label="{EauDeParfum| | + minimoConcentracao()\\l + toString()\\l}"];
+  EDT [label="{EauDeToilette| | + minimoConcentracao()\\l + toString()\\l}"];
+  Colonia [label="{Colonia| | + minimoConcentracao()\\l + toString()\\l}"];
+  Funcionario [label="{«abstract» Funcionario| - nome : String\\l - matricula : String\\l| + podeAssinarParfum() : boolean\\l + assinarCategoria(...)\\l}"];
+  Junior [label="{PerfumistaJunior| | + podeAssinarParfum()\\l}"];
+  Senior [label="{PerfumistaSenior| | + podeAssinarParfum()\\l}"];
+  Precificavel [label="{«interface» Precificavel| + calcularCustoProducao()\\l + calcularPrecoMinimo()\\l}"];
+  Vendavel [label="{«interface» Vendavel| + getNomeComercial()\\l + getPrecoVenda()\\l}"];
+  Formula [label="{Formula| - nome : String\\l - notas e percentuais : dados\\l| + resumo() : String\\l}"];
+  Vela [label="{VelaAromatica| - pesoCeraGramas : double\\l - fragranciaGramas : double\\l| + calcularCustoProducao()\\l}"];
+  Difusor [label="{Difusor| - quantidadeVaretas : int\\l| + calcularCustoProducao()\\l}"];
+  Lote [label="{Lote| - codigo : String (imutável)\\l - dataProducao : LocalDate\\l - quantidadeEstoque : int\\l| + envasar(...)\\l + vender(...)\\l}"];
+  Frasco [label="{Frasco| - volumeMl : int (imutável)\\l}"];
+  Materia [label="{MateriaPrima| - nome : String\\l - validade : LocalDate\\l - quantidade : double\\l| + consumir(...)\\l}"];
+  Cliente [label="{Cliente| - nome : String\\l}"];
+  Encomenda [label="{EncomendaPersonalizada| - nomeGravado : String\\l - semDevolucao : boolean\\l| + registrarDevolucao()\\l}"];
+  Simulacao [label="{Simulacao| | + main(args)\\l}"];
+  {rank=same; Parfum; EDP; EDT; Colonia}
+  {rank=same; Junior; Senior}
+  Parfum -> Perfume [arrowhead=empty]; EDP -> Perfume [arrowhead=empty]; EDT -> Perfume [arrowhead=empty]; Colonia -> Perfume [arrowhead=empty];
+  Junior -> Funcionario [arrowhead=empty]; Senior -> Funcionario [arrowhead=empty];
+  Perfume -> Precificavel [style=dashed, arrowhead=empty]; Perfume -> Vendavel [style=dashed, arrowhead=empty];
+  Vela -> Precificavel [style=dashed, arrowhead=empty]; Vela -> Vendavel [style=dashed, arrowhead=empty];
+  Difusor -> Precificavel [style=dashed, arrowhead=empty]; Difusor -> Vendavel [style=dashed, arrowhead=empty];
+  Perfume -> Formula [label="usa", arrowhead=vee]; Lote -> Perfume [label="produz", arrowhead=vee]; Lote -> Frasco [label="envasa em", arrowhead=vee];
+  Materia -> Lote [label="insumo", style=dotted, arrowhead=vee]; Encomenda -> Cliente [label="cliente", arrowhead=vee]; Simulacao -> Lote [style=dotted, arrowhead=vee];
+}
